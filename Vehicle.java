@@ -1,10 +1,41 @@
 public class Vehicle {
-    
-    String brand;
-    String type;
-    int year;
 
-    
+    private String brand;
+    private String type;
+    private int year;
+
+    public Vehicle(String brand, String type, int year) {
+        this.brand = brand;
+        this.type = type;
+
+        if (year >= 1886 && year <= 2026) {
+            this.year = year;
+        } else {
+            this.year = 2026;
+        }
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public boolean setYear(int year) {
+        if (year >= 1886 && year <= 2026) {
+            this.year = year;
+            return true;
+        }
+
+        return false;
+    }
+
     public void displayInfo() {
         System.out.println("Brand: " + brand);
         System.out.println("Type: " + type);
@@ -19,37 +50,11 @@ public class Vehicle {
         System.out.println(brand + " says: Beep beep!");
     }
 
-    
-    public static void main(String[] args) {
-        
-        Vehicle vehicle1 = new Vehicle();
-        vehicle1.brand = "Ford Mustang Shelby";
-        vehicle1.type = "Muscle Car";
-        vehicle1.year = 1968;
-        
-        Vehicle vehicle2 = new Vehicle();
-        vehicle2.brand = "Tesla Model 3";
-        vehicle2.type = "Electric Sedan";
-        vehicle2.year = 2024;
-        
-        Vehicle vehicle3 = new Vehicle();
-        vehicle3.brand = "Toyota RAV4";
-        vehicle3.type = "SUV";
-        vehicle3.year = 2020;
+    public int calculateAge() {
+        return 2026 - year;
+    }
 
-        System.out.println("--- Vehicle 1 ---");
-        vehicle1.displayInfo();
-        vehicle1.startEngine();
-        vehicle1.honk();
-
-        System.out.println("\n--- Vehicle 2 ---");
-        vehicle2.displayInfo();
-        vehicle2.startEngine();
-        vehicle2.honk();
-
-        System.out.println("\n--- Vehicle 3 ---");
-        vehicle3.displayInfo();
-        vehicle3.startEngine();
-        vehicle3.honk();
+    public boolean isVintage() {
+        return calculateAge() > 25;
     }
 }
