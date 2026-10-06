@@ -1,1 +1,1 @@
-# Java-Vehicle-Class
+Lab-Activity-2
